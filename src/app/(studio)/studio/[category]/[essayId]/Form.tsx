@@ -38,7 +38,7 @@ export function Form({ category, essay }: { category: string; essay: EssayWithPh
       date: essay?.date ?? new Date(),
       feedback: essay?.feedback ?? "",
       photos:
-        essay?.photos.map((photo) => ({
+        essay?.photos.map((photo: PhotosData) => ({
           url: photo.url,
           isMainPhoto: photo.isMainPhoto,
           type: photo.type,

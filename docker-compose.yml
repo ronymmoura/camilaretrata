@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    volumes:
+      - data:/var/lib/postgresql/data
+    networks:
+      - camilaretrata-net
+    environment:
+      POSTGRES_DB: $DB_NAME
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASS
+    ports:
+      - "5433:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - camilaretrata-net
+    links:
+      - postgres
+    command: ["/app/main"]
+
+volumes:
+  data:
+
+networks:
+  camilaretrata-net:
+    driver: bridge

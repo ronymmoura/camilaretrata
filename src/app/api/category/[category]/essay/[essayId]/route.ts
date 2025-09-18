@@ -3,20 +3,29 @@ import { slugify } from "@/lib/util";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
+interface EssayApiParams {
+  params: Promise<{
+    category: string;
+    essayId: string;
+  }>;
+}
+
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { category: string; essayId: string } },
+  { params }: EssayApiParams,
 ) {
+  const { category: categorySlug, essayId } = await params;
+
   try {
     const essay = await request.json();
 
     const category = await prisma.category.findFirstOrThrow({
-      where: { slug: params.category },
+      where: { slug: categorySlug },
     });
 
     const newEssay = await prisma.essay.update({
       where: {
-        id: +params.essayId,
+        id: +essayId,
       },
       data: {
         name: essay.name,
@@ -29,7 +38,7 @@ export async function PUT(
 
     await prisma.photo.deleteMany({
       where: {
-        essayId: +params.essayId,
+        essayId: +essayId,
       },
     });
 
@@ -62,18 +71,20 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { category: string; essayId: string } },
+  { params }: EssayApiParams,
 ) {
+  const { essayId } = await params;
+  
   try {
     await prisma.photo.deleteMany({
       where: {
-        essayId: +params.essayId,
+        essayId: +essayId,
       },
     });
 
     await prisma.essay.delete({
       where: {
-        id: +params.essayId,
+        id: +essayId,
       },
     });
 

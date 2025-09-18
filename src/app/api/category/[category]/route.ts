@@ -3,13 +3,21 @@ import { Category } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT(request: NextRequest, { params }: { params: { category: string } }) {
+interface CategoryApiParams {
+  params: Promise<{
+    category: string;
+  }>;
+}
+
+export async function PUT(request: NextRequest, { params }: CategoryApiParams) {
+  const { category: categorySlug } = await params;
+
   try {
     const category: Category = await request.json();
 
     const result = await prisma.category.updateMany({
       where: {
-        slug: params.category,
+        slug: categorySlug,
       },
       data: {
         name: category.name,
@@ -20,7 +28,7 @@ export async function PUT(request: NextRequest, { params }: { params: { category
     });
 
     if (result.count === 0) {
-      throw new Error(`Category ${params.category} not found`);
+      throw new Error(`Category ${categorySlug} not found`);
     }
 
     revalidatePath("/");

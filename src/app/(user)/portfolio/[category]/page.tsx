@@ -2,17 +2,19 @@ import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Metadata } from "next/metadata";
+import { Metadata } from "next";
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const { category: categorySlug } = await params;
+
   const category = await prisma.category.findFirst({
-    where: { slug: params.category },
+    where: { slug: categorySlug },
   });
 
   if (!category) {
@@ -30,9 +32,11 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 export const revalidate = 60;
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { category: categorySlug } = await params;
+
   const category = await prisma.category.findFirst({
     where: {
-      slug: params.category,
+      slug: categorySlug,
     },
     include: {
       essays: {

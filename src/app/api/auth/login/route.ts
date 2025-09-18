@@ -51,6 +51,16 @@ export async function POST(request: NextRequest) {
 
     return response;
   } catch (error: any) {
+    console.error('Login error:', error);
+    
+    // Handle validation errors
+    if (error.name === 'ZodError') {
+      return NextResponse.json(
+        { success: false, message: 'Invalid input data' },
+        { status: 400 }
+      );
+    }
+    
     return NextResponse.json(
       { success: false, message: 'Internal server error' },
       { status: 500 }

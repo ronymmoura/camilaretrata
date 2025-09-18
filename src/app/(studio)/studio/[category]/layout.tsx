@@ -5,13 +5,15 @@ import Link from "next/link";
 import { prisma } from "@/lib/db/prisma";
 
 interface CategoryPageParams {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
   children: ReactNode;
 }
 
-export default async function Layout({ children, params: { category } }: CategoryPageParams) {
+export default async function Layout({ children, params }: CategoryPageParams) {
+  const { category } = await params;
+  
   const cat = await prisma.category.findFirstOrThrow({
     where: { slug: category },
   });

@@ -3,10 +3,10 @@ import { Form } from "./Form";
 import { Prisma } from "@prisma/client";
 
 interface CategoryPageParams {
-  params: {
+  params: Promise<{
     category: string;
     essayId: string;
-  };
+  }>;
 }
 
 export const revalidate = 0;
@@ -17,7 +17,9 @@ export type EssayWithPhotos = Prisma.EssayGetPayload<{
   };
 }>;
 
-export default async function Edit({ params: { category, essayId } }: CategoryPageParams) {
+export default async function Edit({ params }: CategoryPageParams) {
+  const { category, essayId } = await params;
+
   let essay: EssayWithPhotos | null;
 
   if (essayId === "new") {

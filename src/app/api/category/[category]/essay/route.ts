@@ -3,12 +3,21 @@ import { slugify } from "@/lib/util";
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
-export async function POST(request: NextRequest, { params }: { params: { category: string } }) {
+interface EssayApiParams {
+  params: Promise<{
+    category: string;
+    essayId: string;
+  }>;
+}
+
+export async function POST(request: NextRequest, { params }: EssayApiParams) {
+  const { category: categorySlug, essayId } = await params;
+
   try {
     const essay = await request.json();
 
     const category = await prisma.category.findFirstOrThrow({
-      where: { slug: params.category },
+      where: { slug: categorySlug },
     });
 
     const newEssay = await prisma.essay.create({

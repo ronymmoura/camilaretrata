@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next/metadata";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Depoimentos - Camila Retrata",
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function TestimonialsPage() {
-  // Get essays that have feedback (testimonials)
+  
   const essaysWithFeedback = await prisma.essay.findMany({
     where: {
       feedback: {
-        not: null,
+        not: undefined,
       },
     },
     include: {
@@ -91,7 +91,7 @@ export default async function TestimonialsPage() {
                   </div>
 
                   <blockquote className="text-lg text-accent/80 italic leading-relaxed">
-                    "{essay.feedback}"
+                    &quot;{essay.feedback}&quot;
                   </blockquote>
 
                   <Link

@@ -5,18 +5,20 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 interface EssayPageProps {
-  params: {
+  params: Promise<{
     category: string;
     essay: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: EssayPageProps): Promise<Metadata> {
+  const { essay: essaySlug, category: categorySlug } = await params;
+
   const essay = await prisma.essay.findFirst({
     where: { 
-      slug: params.essay,
+      slug: essaySlug,
       category: {
-        slug: params.category,
+        slug: categorySlug,
       },
     },
     include: {
@@ -39,11 +41,13 @@ export async function generateMetadata({ params }: EssayPageProps): Promise<Meta
 export const revalidate = 60;
 
 export default async function EssayPage({ params }: EssayPageProps) {
+  const { essay: essaySlug, category: categorySlug } = await params;
+  
   const essay = await prisma.essay.findFirst({
     where: {
-      slug: params.essay,
+      slug: essaySlug,
       category: {
-        slug: params.category,
+        slug: categorySlug,
       },
     },
     include: {

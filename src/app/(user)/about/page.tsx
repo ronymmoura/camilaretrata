@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next/metadata";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Sobre - Camila Retrata",
@@ -110,8 +110,8 @@ export default function About() {
             </h2>
             <div className="text-center max-w-3xl mx-auto">
               <p className="text-lg text-accent/80 leading-relaxed mb-6">
-                "Acredito que a fotografia vai muito além de apenas capturar imagens. 
-                É sobre criar conexões, preservar emoções e contar histórias que durarão para sempre."
+                &quot;Acredito que a fotografia vai muito além de apenas capturar imagens. 
+                É sobre criar conexões, preservar emoções e contar histórias que durarão para sempre.&quot;
               </p>
               <p className="text-accent/70">
                 Cada sessão é única e personalizada, sempre respeitando o estilo e personalidade 

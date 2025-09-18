@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next/metadata";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Portfólio - Camila Retrata",

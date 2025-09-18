@@ -7,14 +7,16 @@ import { cn } from "@/lib/util";
 import { prisma } from "@/lib/db/prisma";
 
 interface CategoryPageParams {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 }
 
 export const revalidate = 0;
 
-export default async function CategoryPage({ params: { category } }: CategoryPageParams) {
+export default async function CategoryPage({ params }: CategoryPageParams) {
+  const { category } = await params;
+  
   const essays = await prisma.essay.findMany({
     where: {
       category: {
