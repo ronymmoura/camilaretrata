@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
-import Image from "next/image";
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -121,17 +121,17 @@ export default async function EssayPage({ params }: EssayPageProps) {
                 `}
               >
                 {photo.type === "IMAGE" ? (
-                  <Image
+                  <img
                     src={photo.url}
                     alt={`${essay.name} - Foto ${index + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    // fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105 h-full w-full"
                     sizes={
                       photo.isMainPhoto
                         ? "(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
                         : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     }
-                    priority={index < 3}
+                    // priority={index < 3}
                   />
                 ) : (
                   <video

@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
-import Image from "next/image";
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -64,20 +64,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="relative h-64 md:h-96 bg-gray-900">
         {category.desktopImageUrl && (
           <>
-            <Image
+            <img
               src={category.desktopImageUrl}
               alt={category.name}
-              fill
+              // fill
               className="object-cover opacity-60 hidden md:block"
-              priority
+              // priority
             />
             {category.mobileImageUrl && (
-              <Image
+              <img
                 src={category.mobileImageUrl}
                 alt={category.name}
-                fill
+                // fill
                 className="object-cover opacity-60 block md:hidden"
-                priority
+                // priority
               />
             )}
           </>
@@ -122,11 +122,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <div className="space-y-4">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-gray-200">
                     {essay.photos[0] && (
-                      <Image
+                      <img
                         src={essay.photos[0].url}
                         alt={essay.name}
-                        fill
-                        className="object-cover transition-all duration-300 group-hover:scale-105"
+                        // fill
+                        className="object-cover transition-all duration-300 group-hover:scale-105 h-full"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                       />
                     )}

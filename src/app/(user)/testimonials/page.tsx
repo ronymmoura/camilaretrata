@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
-import Image from "next/image";
+
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -64,10 +64,10 @@ export default async function TestimonialsPage() {
                 <div className="w-full md:w-1/2">
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                     {essay.photos[0] && (
-                      <Image
+                      <img
                         src={essay.photos[0].url}
                         alt={essay.name}
-                        fill
+                        // fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />

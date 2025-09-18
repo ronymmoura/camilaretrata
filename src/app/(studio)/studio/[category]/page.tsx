@@ -1,6 +1,5 @@
 import { FaPlus } from "react-icons/fa6";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/util";
@@ -43,7 +42,7 @@ export default async function CategoryPage({ params }: CategoryPageParams) {
           href={`/studio/${category}/${essay.id}`}
           className="group relative w-[250px] overflow-hidden rounded-md"
         >
-          <Image
+          <img
             src={essay.photos.find((x) => x.isMainPhoto)?.url as string}
             alt={essay.name}
             width={250}

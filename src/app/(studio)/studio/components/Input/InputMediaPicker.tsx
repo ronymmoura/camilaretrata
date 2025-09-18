@@ -2,7 +2,7 @@
 
 import { storageUpload } from "@/lib/storage/local";
 import { cn } from "@/lib/util";
-import Image from "next/image";
+
 import * as React from "react";
 import { ChangeEvent, createRef, useState } from "react";
 import Cropper, { ReactCropperElement } from "react-cropper";
@@ -143,10 +143,10 @@ const InputMediaPicker = React.forwardRef<HTMLInputElement, InputMediaPickerProp
               className,
             )}
           >
-            <Image
+            <img
               src={value}
               alt=""
-              fill
+              // fill
               className="aspect-video w-full rounded-lg object-cover"
               sizes="100vw"
             />

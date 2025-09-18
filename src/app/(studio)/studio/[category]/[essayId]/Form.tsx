@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
-import Image from "next/image";
 import { z } from "zod";
 import { Button } from "../../components/Button";
 import { FaFloppyDisk, FaTrash } from "react-icons/fa6";
@@ -175,7 +174,7 @@ export function Form({ category, essay }: { category: string; essay: EssayWithPh
             >
               {photo.type === "IMAGE" && (
                 <>
-                  <Image
+                  <img
                     src={photo.url}
                     alt={""}
                     width={250}

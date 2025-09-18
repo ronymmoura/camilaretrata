@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -12,12 +11,11 @@ export default function About() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <div className="relative h-96 bg-gray-900">
-        <Image
+        <img
           src="/about.jpg"
           alt="Camila Retrata"
-          fill
+          // fill
           className="object-cover opacity-70"
-          priority
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
@@ -56,10 +54,10 @@ export default function About() {
             </div>
             <div className="order-1 md:order-2">
               <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
-                <Image
+                <img
                   src="/about.jpg"
                   alt="Camila Retrata - Fotógrafa"
-                  fill
+                  // fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
