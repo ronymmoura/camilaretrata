@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
         pathname: "/uploads/**",
       },
     ],
-    remotePatterns: [new URL('https://camilaretrata.com.br/uploads/**')],
+    remotePatterns: [new URL('http://camilaretrata.com.br/uploads/**')],
   }
 };
 
