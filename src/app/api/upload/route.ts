@@ -70,8 +70,8 @@ export async function POST(request: NextRequest) {
     writeFileSync(filePath, Buffer.from(fileBuffer));
 
     // Construct URL
-    const origin = headersList.get('origin') || 'http://localhost:3000';
-    const fileUrl = `${origin}/uploads/${uniqueFilename}`;
+    //const origin = headersList.get('origin') || 'http://localhost:3000';
+    const fileUrl = `/uploads/${uniqueFilename}`;
 
     return NextResponse.json({
       success: true,
