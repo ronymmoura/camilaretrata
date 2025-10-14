@@ -2,6 +2,7 @@ import { prisma } from "@/lib/db/prisma";
 
 import Link from "next/link";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Depoimentos - Camila Retrata",
@@ -64,10 +65,10 @@ export default async function TestimonialsPage() {
                 <div className="w-full md:w-1/2">
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                     {essay.photos[0] && (
-                      <img
+                      <Image
                         src={essay.photos[0].url}
                         alt={essay.name}
-                        // fill
+                        fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />

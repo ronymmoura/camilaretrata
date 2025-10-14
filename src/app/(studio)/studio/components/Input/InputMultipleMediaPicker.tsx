@@ -1,11 +1,11 @@
-import { storageUpload } from "@/lib/storage/local";
+import { storageUpload } from "@/lib/storage/supabase";
 import { cn } from "@/lib/util";
+
 import * as React from "react";
 import { ChangeEvent } from "react";
 import { useFormContext } from "react-hook-form";
 import { FaPlus, FaSpinner } from "react-icons/fa6";
 import uuid4 from "uuid4";
-//import uuid4 from "uuid4";
 
 type InputMultipleMediaPickerProps = React.InputHTMLAttributes<HTMLInputElement>;
 

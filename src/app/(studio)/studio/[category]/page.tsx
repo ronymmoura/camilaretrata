@@ -1,6 +1,7 @@
 import { FaPlus } from "react-icons/fa6";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { cn } from "@/lib/util";
 import { prisma } from "@/lib/db/prisma";
@@ -42,7 +43,7 @@ export default async function CategoryPage({ params }: CategoryPageParams) {
           href={`/studio/${category}/${essay.id}`}
           className="group relative w-[250px] overflow-hidden rounded-md"
         >
-          <img
+          <Image
             src={essay.photos.find((x) => x.isMainPhoto)?.url as string}
             alt={essay.name}
             width={250}
