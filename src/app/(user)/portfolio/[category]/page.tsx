@@ -65,20 +65,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="relative h-64 md:h-96 bg-gray-900">
         {category.desktopImageUrl && (
           <>
-            <img
+            <Image
               src={category.desktopImageUrl}
               alt={category.name}
-              // fill
+              fill
               className="object-cover opacity-60 hidden md:block"
-              // priority
+              priority
             />
             {category.mobileImageUrl && (
-              <img
+              <Image
                 src={category.mobileImageUrl}
                 alt={category.name}
-                // fill
+                fill
                 className="object-cover opacity-60 block md:hidden"
-                // priority
+                priority
               />
             )}
           </>

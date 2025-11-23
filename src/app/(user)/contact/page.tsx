@@ -231,7 +231,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-accent mb-1">WhatsApp</h3>
-                    <p className="text-accent/70">(83) 99999-9999</p>
+                    <p className="text-accent/70">(83) 98804-5393</p>
                   </div>
                 </div>
 
