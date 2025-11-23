@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         className={`${poppins.variable} ${tt.variable} font-sans`}
       >
         <Header />
-        <main>{children}</main>
+        <main className="text-gray-600">{children}</main>
       </body>
     </html>
   );

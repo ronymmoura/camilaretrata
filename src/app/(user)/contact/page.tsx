@@ -135,7 +135,7 @@ export default function ContactPage() {
                     type="tel"
                     {...register("phone")}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
-                    placeholder="(11) 99999-9999"
+                    placeholder="(83) 99999-9999"
                   />
                 </div>
                 <div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-accent mb-1">WhatsApp</h3>
-                    <p className="text-accent/70">(11) 99999-9999</p>
+                    <p className="text-accent/70">(83) 99999-9999</p>
                   </div>
                 </div>
 
@@ -241,8 +241,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-accent mb-1">Localização</h3>
-                    <p className="text-accent/70">São Paulo, SP</p>
-                    <p className="text-accent/60 text-sm">Atendo em toda a Grande São Paulo</p>
+                    <p className="text-accent/70">João Pessoa, PB</p>
                   </div>
                 </div>
               </div>

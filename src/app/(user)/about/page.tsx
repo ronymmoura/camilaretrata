@@ -71,7 +71,7 @@ export default function About() {
             <h2 className="text-3xl font-light text-accent text-center mb-12">
               Meus Serviços
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl text-accent">📸</span>
@@ -83,20 +83,11 @@ export default function About() {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl text-accent">💕</span>
-                </div>
-                <h3 className="text-xl font-medium text-accent mb-3">Casamentos</h3>
-                <p className="text-accent/70">
-                  Documentação completa do seu dia especial, capturando cada emoção e momento único.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl text-accent">🎉</span>
                 </div>
                 <h3 className="text-xl font-medium text-accent mb-3">Eventos</h3>
                 <p className="text-accent/70">
-                  Cobertura de eventos especiais, aniversários, formaturas e celebrações importantes.
+                  Cobertura de eventos especiais, aniversários e celebrações importantes.
                 </p>
               </div>
             </div>
